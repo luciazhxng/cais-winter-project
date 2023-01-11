@@ -3,7 +3,7 @@ Lucia Zhang, lrzhang@usc.edu
 
 This project aims to classify images of letters from American Sign Language, including the 26 letters A-Z and SPACE, DELETE, NOTHING. 
 
-The ASL Alphabet dataset on Kaggle (https://www.kaggle.com/datasets/grassknoted/asl-alphabet) (ASL Alphabet Version 1 by Akash Nagaraj) consists of 87,000 200 x 200 pixel images in the training data set and 29 images in the test data set. I pre-processed the data by applying image transformations to resize, crop, and normalize the images.
+The ASL Alphabet dataset on Kaggle (https://www.kaggle.com/datasets/grassknoted/asl-alphabet) (ASL Alphabet Version 1 by Akash Nagaraj) consists of 87,000 200 x 200 pixel images in the training data set and 29 images in the test data set. I pre-processed the data by applying image transformations to resize, crop, and normalize the images. One version of the code does not evaluate on a test set (asl-notebook), and the other does not, (asl-notebook-test), because I'm not quite sure I evaluated it correctly. 
 
 I trained only on 27,173 total images rather than the entire 87,029, and I split it into train, test, and validation sets. The original test set only had 29 images, so I made it bigger. I used transfer learning with ResNet 50, because it has many layers that allow it to train well, but it is not so big that training would take too long or it would overfit. I froze all of the layers besides the last fully connected layer and set it to output 29 classes. The model trained well after 2 epochs with cross entropy loss, the Adam optimizer, and a learning rate of 0.001. 
 
